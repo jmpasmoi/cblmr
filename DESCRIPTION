@@ -1,0 +1,18 @@
+Package: cblmr
+Type: Package
+Title: Choice of Best Linear Model
+Version: 0.1.0
+Author: Jean Marie Cimula
+Maintainer: Jean Marie Cimula <jmkacim@gmail.com>
+Description: Choosing the best model from among different best models.
+    Evaluating based on predictions and goodness of fit.
+License: GPL-3
+Imports:
+    DAAG,
+    glmnet,
+    lars,
+    leaps,
+    stringr,
+    knitr
+LazyData: true
+RoxygenNote: 5.0.1
