@@ -9,6 +9,7 @@ Choosing the best model from among different “best” models. Evaluating based
 For the development version : 
 
 install.packages("devtools")
+
 library(devtools)
 
 devtools::install_github("jmcimula/cblmr")
