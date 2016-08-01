@@ -14,5 +14,8 @@ Imports:
     leaps,
     stringr,
     knitr
+BugReports : https://github.com/jmcimula/cblmr/issues
+URL : https://github.com/jmcimula/cblmr/
+VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 5.0.1
