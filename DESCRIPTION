@@ -1,6 +1,6 @@
 Package: cblmr
 Type: Package
-Title: Choice of Best Linear Model
+Title: The Choice of the Best Linear Model
 Version: 0.1.0
 Author: Jean Marie Cimula
 Maintainer: Jean Marie Cimula <jmkacim@gmail.com>
