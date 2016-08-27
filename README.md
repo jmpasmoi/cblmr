@@ -70,3 +70,7 @@ library(cblmr) # for functions
  
 
 ```
+
+##Licence
+
+GPL (>= 2)
