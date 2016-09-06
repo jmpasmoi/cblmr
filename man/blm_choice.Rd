@@ -4,12 +4,14 @@
 \alias{blm_choice}
 \title{Choice of Best Linear Model}
 \usage{
-blm_choice(dataframe, response)
+blm_choice(dataframe, response, ..., exp.comb)
 }
 \arguments{
 \item{dataframe}{only numerical values are required (explanatory and response variables)}
 
-\item{response}{is the variable of interest in the experiment}
+\item{response}{dependent variable}
+
+\item{exp.comb}{number of expected combinations}
 }
 \value{
 a tab grouping predictions and goodness of fit per model
