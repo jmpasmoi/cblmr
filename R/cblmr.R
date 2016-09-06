@@ -5,15 +5,37 @@
 #' Evaluating based on predictions and goodness of fit.
 #'
 #' @param dataframe only numerical values are required (explanatory and response variables)
-#' @param response is the variable of interest in the experiment
+#' @param response  dependent variable
+#' @param exp.comb  number of expected combinations
+#'
 #' @return a tab grouping predictions and goodness of fit per model
 #' @author Jean Marie Cimula
 #' @details
 #' Evaluating based on predictions (PRESS : Prediction Sum of Squares) and
 #' goodness of fit (AIC, BIC, R Squared, Adj. Squared).
-#'@export
+#'
+#' @export
+#'
 
-blm_choice <- function (dataframe, response){
+
+blm_choice <- function (dataframe, response, ..., exp.comb){
+
+
+  f <- formals(blm_choice)  # Capture formal arguments
+
+  formalNames <- names(f)
+
+  exc <- do.call(missing, list(formalNames[4]))
+
+
+
+  if(exc == TRUE){ ec <- "abs"}
+  else{
+
+    if(exp.comb > 0 && is.numeric(exp.comb) == TRUE){ec <- exp.comb}
+    else{stop("Unexpected value. Please type positive integer")}
+  }
+
 
   input_unit <- dataframe
 
@@ -67,6 +89,8 @@ blm_choice <- function (dataframe, response){
 
     getVal    <- na.omit (ExpVarMatrix[i, ])
 
+
+
     mdRegComb <- paste (response, " ~ ", paste (getVal, collapse = " + "), sep = "")
 
     #print(mdRegComb)
@@ -115,7 +139,7 @@ blm_choice <- function (dataframe, response){
       }
 
     #Assembling diagnostic parameters per model predictor in Matrix of all combinations
-    dFrame <- data.frame(modelReg = mdRegComb,RSquared = RSqrt,AdjustedRSquared = AdjRSqrt,AIC = AIC,BIC = BIC,PRESS = PL,Ridge = Ridge,Lasso = Lasso, ElasticNet = ElasticNet,Cp=Cp)#, nbResp = nbResp, nbExp = nbExp)#, Accuracy = RidgeRegression)
+    dFrame <- data.frame(modelReg = mdRegComb,RSquared = RSqrt,AdjustedRSquared = AdjRSqrt,AIC = AIC,BIC = BIC,PRESS = PL,Ridge = Ridge,Lasso = Lasso, ElasticNet = ElasticNet,Cp=Cp, nexp = length(getVal))#, nbResp = nbResp, nbExp = nbExp)#, Accuracy = RidgeRegression)
 
     #Loading data frame
     make_your_choice <- rbind(make_your_choice,dFrame)
@@ -123,9 +147,18 @@ blm_choice <- function (dataframe, response){
 
     make_your_choice <- as.data.frame(make_your_choice)
 
-     #getBestRModel(make_your_choice)  #Call the function getBestRModel
-     #return (View(make_your_choice))#Return
-     knitr::kable(make_your_choice)
+    if(is.numeric(ec)==TRUE){
+
+      df <- make_your_choice[make_your_choice$nexp==ec,]
+
+    }else {
+
+      df <- make_your_choice
+    }
+
+    rownames(df) <-  NULL
+
+    knitr::kable(df)
 
 }#End function
 
