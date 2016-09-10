@@ -83,3 +83,7 @@ library(cblmr) # for functions
 ##Licence
 
 GPL (>= 2)
+
+### Author
+
+Jean Marie Cimula
