@@ -14,6 +14,7 @@ Imports:
     lars,
     leaps,
     stringr,
+    digest,
     knitr
 BugReports : https://github.com/jmcimula/cblmr/issues
 URL : https://github.com/jmcimula/cblmr/
