@@ -147,7 +147,7 @@ blm_choice <- function(dataframe, response, exp.comb, ..., choice = FALSE){
       }
 
     #Assembling diagnostic parameters per model predictor in Matrix of all combinations
-    dFrame <- data.frame(modelReg = mdRegComb,RSquared = RSqrt,AdjustedRSquared = AdjRSqrt,AIC = AIC,BIC = BIC,PRESS = PL,Ridge = Ridge,Lasso = Lasso, ElasticNet = ElasticNet,Cp=Cp, nexp = length(getval))#, nbResp = nbResp, nbExp = nbExp)#, Accuracy = RidgeRegression)
+    dFrame <- data.frame(reg_model = mdRegComb,RSquared = RSqrt,AdjustedRSquared = AdjRSqrt,AIC = AIC,BIC = BIC,PRESS = PL,Ridge = Ridge,Lasso = Lasso, ElasticNet = ElasticNet,Cp=Cp, nexp = length(getval))#, nbResp = nbResp, nbExp = nbExp)#, Accuracy = RidgeRegression)
 
     #Loading data frame
     make_your_choice <- rbind(make_your_choice,dFrame)
