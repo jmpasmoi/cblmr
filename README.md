@@ -34,7 +34,7 @@ library(cblmr) # for functions
 #> blm_choice(df,"mpg")
 
 
-#|modelReg                          | r.squared| adj.r.squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
+#|modelReg                          | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
 #|:---------------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|
 #|mpg ~ cyl                         | 0.7261800|     0.7170527| 169.3064| 173.7036| 358.6699| 0.000000| 0.000000|   0.000000| 0.000000|
 #|mpg ~ disp                        | 0.7183433|     0.7089548| 170.2094| 174.6066| 365.8296| 0.000000| 0.000000|   0.000000| 0.000000|
@@ -68,16 +68,23 @@ library(cblmr) # for functions
 #|mpg ~ disp + hp + drat + wt       | 0.8376289|     0.8135739| 158.5837| 167.3781| 265.6399| 5.713688| 6.827722|   5.713711| 2.803104|
 #|mpg ~ cyl + disp + hp + drat + wt | 0.8513152|     0.8227219| 157.7659| 168.0260| 247.4323| 5.232081| 5.232066|   5.232085| 3.427820|
 
-#>#number of expected combinations : 4
+##number of expected combinations : 4
 #>blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
-#|modelReg                     | r.squared| adj.r.squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+#|modelReg                     | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:----------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|----:|
 #|mpg ~ cyl + disp + hp + drat | 0.7825119|     0.7502914| 167.9360| 176.7304| 327.8762| 7.653193| 7.653185|   7.653194| 3.848634|    4|
 #|mpg ~ cyl + disp + hp + wt   | 0.8486348|     0.8262103| 156.3376| 165.1320| 234.8245| 5.326389| 5.326386|   5.326390| 3.978361|    4|
 #|mpg ~ cyl + disp + drat + wt | 0.8326074|     0.8078085| 159.5583| 168.3527| 255.8151| 5.890399| 5.890373|   5.890434| 1.383891|    4|
 #|mpg ~ cyl + hp + drat + wt   | 0.8451439|     0.8222023| 157.0672| 165.8616| 239.9967| 5.449238| 5.449226|   5.449237| 3.347657|    4|
 #|mpg ~ disp + hp + drat + wt  | 0.8376289|     0.8135739| 158.5837| 167.3781| 265.6399| 5.713688| 6.827722|   5.713711| 2.803104|    4|
+
+##Choosing the best model from the combination of four (4) variables above
+#> blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
+
+#|modelReg                   | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+#|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
+#|mpg ~ cyl + disp + hp + wt | 0.8486348|     0.8262103| 156.3376| 165.132| 234.8245| 5.326389| 5.326386|    5.32639| 3.978361|    4|
 ```
 
 ##Licence
