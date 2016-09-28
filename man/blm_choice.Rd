@@ -4,14 +4,16 @@
 \alias{blm_choice}
 \title{Choice of Best Linear Model}
 \usage{
-blm_choice(dataframe, response, ..., exp.comb)
+blm_choice(dataframe, response, exp.comb, ..., choice = FALSE)
 }
 \arguments{
-\item{dataframe}{only numerical values are required (explanatory and response variables)}
+\item{dataframe}{only numerical values are required(explanatory and response variables)}
 
 \item{response}{dependent variable}
 
 \item{exp.comb}{number of expected combinations}
+
+\item{choice}{when choice=TRUE it return the best model based on exp.comb. Default choice=FALSE}
 }
 \value{
 a tab grouping predictions and goodness of fit per model
@@ -21,8 +23,8 @@ This function allows you to choose the best model from among different "best" mo
 Evaluating based on predictions and goodness of fit.
 }
 \details{
-Evaluating based on predictions (PRESS : Prediction Sum of Squares) and
-goodness of fit (AIC, BIC, R Squared, Adj. Squared).
+Evaluating based on predictions(PRESS : Prediction Sum of Squares) and
+goodness of fit(AIC, BIC, R Squared, Adj. Squared).
 }
 \author{
 Jean Marie Cimula
