@@ -3,8 +3,9 @@ Type: Package
 Title: The Choice of the Best Linear Model
 Version: 0.1.0
 Date: 2016-08-01
-Author: Jean Marie Cimula
-Maintainer: Jean Marie Cimula <jmkacim@gmail.com>
+Authors@R: c(
+    person("Jean Marie", "Cimula", , "jmkacim@gmail.com", role = c("aut", "cre"))
+    )
 Description: Choosing the best model from among different best models.
     Evaluating based on predictions and goodness of fit.
 License: GPL-3
