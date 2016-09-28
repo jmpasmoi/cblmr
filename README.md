@@ -2,7 +2,7 @@
 
 The choice of the best linear model **(cblmr)**
 
-Choosing the best model from among different “best” models. Evaluating based on predictions (PRESS : Prediction Sum of Squares) and goodness of fit (AIC, BIC, R Squared, Adj. Squared)
+Choosing the correct linear regression model can be difficult. After all, the world and how it works is complex. Let's make the evaluation based on predictions (PRESS : Prediction Sum of Squares) and goodness of fit (AIC, BIC, R Squared, Adj. Squared) to mathematically describe the relationship between some predictors and the response variable
 
 ## Installation
 
@@ -80,7 +80,7 @@ library(cblmr) # for functions
 #|mpg ~ disp + hp + drat + wt  | 0.8376289|     0.8135739| 158.5837| 167.3781| 265.6399| 5.713688| 6.827722|   5.713711| 2.803104|    4|
 
 ##Choosing the best model from the combination of four (4) variables above
-#> blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
+#>blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
 
 #|modelReg                   | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
