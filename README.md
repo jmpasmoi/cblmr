@@ -87,6 +87,8 @@ library(cblmr) # for functions
 #|mpg ~ cyl + disp + hp + wt | 0.8486348|     0.8262103| 156.3376| 165.132| 234.8245| 5.326389| 5.326386|    5.32639| 3.978361|    4|
 ```
 
+Regular R squared increases every time you add a predictor and can trick you into specifying an overly complex model. Unlike the case above, the number of predictors is predefined in the function. It's returned `mpg ~ cyl + disp + hp + wt` which implies the criteria of selection, namely max value of r.squared, adj.r.squared and  Mallows’ Cp (which is a statistic specifically designed to help you manage the tradeoff between precision and bias.), and min vax of AIC, BIC , PRESS (Cross-validation determines how well your model generalizes to other data sets by partitioning your data), Ridge, Lasso (it enhances the prediction accuracy and interpretability of the statistical model it produces), Elasticnet
+
 ##Licence
 
 GPL (>= 2)
