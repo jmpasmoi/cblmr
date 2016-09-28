@@ -22,8 +22,8 @@ devtools::install_github("jmcimula/cblmr")
 ``` r
 library(cblmr) # for functions
 
-#> df <- mtcars[,c(1,2,3,4,5,6)]
-#> str(df)
+df <- mtcars[,c(1,2,3,4,5,6)]
+str(df)
 #'data.frame':   32 obs. of  6 variables:
 # $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 # $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
@@ -31,10 +31,10 @@ library(cblmr) # for functions
 # $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
 # $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
 # $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
-#> blm_choice(df,"mpg")
 
+blm_choice(df,"mpg")
 
-#|modelReg                          | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
+#|reg_model                          | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
 #|:---------------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|
 #|mpg ~ cyl                         | 0.7261800|     0.7170527| 169.3064| 173.7036| 358.6699| 0.000000| 0.000000|   0.000000| 0.000000|
 #|mpg ~ disp                        | 0.7183433|     0.7089548| 170.2094| 174.6066| 365.8296| 0.000000| 0.000000|   0.000000| 0.000000|
@@ -69,9 +69,10 @@ library(cblmr) # for functions
 #|mpg ~ cyl + disp + hp + drat + wt | 0.8513152|     0.8227219| 157.7659| 168.0260| 247.4323| 5.232081| 5.232066|   5.232085| 3.427820|
 
 ##number of expected combinations : 4
-#>blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
-#|modelReg                     | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+blm_choice(dataframe=df,response="mpg",exp.comb=4)
+
+#|reg_model                     | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:----------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|----:|
 #|mpg ~ cyl + disp + hp + drat | 0.7825119|     0.7502914| 167.9360| 176.7304| 327.8762| 7.653193| 7.653185|   7.653194| 3.848634|    4|
 #|mpg ~ cyl + disp + hp + wt   | 0.8486348|     0.8262103| 156.3376| 165.1320| 234.8245| 5.326389| 5.326386|   5.326390| 3.978361|    4|
@@ -80,9 +81,10 @@ library(cblmr) # for functions
 #|mpg ~ disp + hp + drat + wt  | 0.8376289|     0.8135739| 158.5837| 167.3781| 265.6399| 5.713688| 6.827722|   5.713711| 2.803104|    4|
 
 ##Choosing the best model from the combination of four (4) variables above
-#>blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
 
-#|modelReg                   | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
+
+#|reg_model                   | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
 #|mpg ~ cyl + disp + hp + wt | 0.8486348|     0.8262103| 156.3376| 165.132| 234.8245| 5.326389| 5.326386|    5.32639| 3.978361|    4|
 ```
