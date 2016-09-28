@@ -34,7 +34,7 @@ str(df)
 
 blm_choice(df,"mpg")
 
-#|reg_model                          | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
+#|reg_model                         | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
 #|:---------------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|
 #|mpg ~ cyl                         | 0.7261800|     0.7170527| 169.3064| 173.7036| 358.6699| 0.000000| 0.000000|   0.000000| 0.000000|
 #|mpg ~ disp                        | 0.7183433|     0.7089548| 170.2094| 174.6066| 365.8296| 0.000000| 0.000000|   0.000000| 0.000000|
@@ -72,7 +72,7 @@ blm_choice(df,"mpg")
 
 blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
-#|reg_model                     | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+#|reg_model                    | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:----------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|----:|
 #|mpg ~ cyl + disp + hp + drat | 0.7825119|     0.7502914| 167.9360| 176.7304| 327.8762| 7.653193| 7.653185|   7.653194| 3.848634|    4|
 #|mpg ~ cyl + disp + hp + wt   | 0.8486348|     0.8262103| 156.3376| 165.1320| 234.8245| 5.326389| 5.326386|   5.326390| 3.978361|    4|
@@ -82,9 +82,9 @@ blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
 ##Choosing the best model from the combination of four (4) variables above
 
-blm_choice(dataframe=df,response="mpg",exp.comb = 4, choice = TRUE)
+blm_choice(dataframe=df,response="mpg",exp.comb=4,choice=TRUE)
 
-#|reg_model                   | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
+#|reg_model                  | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
 #|mpg ~ cyl + disp + hp + wt | 0.8486348|     0.8262103| 156.3376| 165.132| 234.8245| 5.326389| 5.326386|    5.32639| 3.978361|    4|
 ```
