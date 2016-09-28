@@ -15,7 +15,14 @@ Imports:
     leaps,
     stringr,
     digest,
-    knitr
+    knitr,
+    sqldf
+Suggests:
+    gsubfn,
+    proto,
+    RSQLite,
+    DBI,
+    tcltk
 BugReports : https://github.com/jmcimula/cblmr/issues
 URL : https://github.com/jmcimula/cblmr/
 VignetteBuilder: knitr
