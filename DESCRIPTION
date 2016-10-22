@@ -17,7 +17,8 @@ Imports:
     stringr,
     digest,
     knitr,
-    sqldf
+    sqldf,
+    broom
 Suggests:
     gsubfn,
     proto,
