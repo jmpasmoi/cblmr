@@ -22,8 +22,8 @@ devtools::install_github("jmcimula/cblmr")
 ``` r
 library(cblmr) # for functions
 
-df <- mtcars[,c(1,2,3,4,5,6)]
-str(df)
+>df <- mtcars[,c(1,2,3,4,5,6)]
+>str(df)
 #'data.frame':   32 obs. of  6 variables:
 # $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 # $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
@@ -32,7 +32,7 @@ str(df)
 # $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
 # $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
 
-blm_choice(df,"mpg")
+>blm_choice(df,"mpg")
 
 #|reg_model                         | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
 #|:---------------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|
@@ -70,7 +70,7 @@ blm_choice(df,"mpg")
 
 ##number of expected combinations : 4
 
-blm_choice(dataframe=df,response="mpg",exp.comb=4)
+>blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
 #|reg_model                    | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:----------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|----:|
@@ -82,7 +82,7 @@ blm_choice(dataframe=df,response="mpg",exp.comb=4)
 
 ##Choosing the best model from the combination of four (4) variables above
 
-blm_choice(dataframe=df,response="mpg",exp.comb=4,choice=TRUE)
+>blm_choice(dataframe=df,response="mpg",exp.comb=4,choice=TRUE)
 
 #|reg_model                  | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
