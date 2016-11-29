@@ -32,7 +32,8 @@ library(cblmr) # for functions
 # $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
 # $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
 
->blm_choice(df,"mpg")
+>x <- blm_choice(df,"mpg")
+>knitr::kable(x)
 
 #|reg_model                         | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp|
 #|:---------------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|
@@ -70,7 +71,8 @@ library(cblmr) # for functions
 
 ##number of expected combinations : 4
 
->blm_choice(dataframe=df,response="mpg",exp.comb=4)
+>x <- blm_choice(dataframe=df,response="mpg",exp.comb=4)
+>knitr::kable(x)
 
 #|reg_model                    | r_squared| adj_r_squared|      AIC|      BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:----------------------------|---------:|-------------:|--------:|--------:|--------:|--------:|--------:|----------:|--------:|----:|
@@ -82,7 +84,8 @@ library(cblmr) # for functions
 
 ##Choosing the best model from the combination of four (4) variables above
 
->blm_choice(dataframe=df,response="mpg",exp.comb=4,choice=TRUE)
+>x <- blm_choice(dataframe=df,response="mpg",exp.comb=4,choice=TRUE)
+>knitr::kable(x)
 
 #|reg_model                  | r_squared| adj_r_squared|      AIC|     BIC|    PRESS|    Ridge|    Lasso| ElasticNet|       Cp| nexp|
 #|:--------------------------|---------:|-------------:|--------:|-------:|--------:|--------:|--------:|----------:|--------:|----:|
