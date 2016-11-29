@@ -185,14 +185,13 @@ blm_choice <- function(dataframe, response, exp.comb, ..., choice = FALSE){
 
     }
 
-    knitr::kable(df)
-
+    #knitr::kable(df)
+    df
 }#End function
 
 getNumberResponse <- function(dataframe, model){
 
   #Retrieving the number of the column of the response variable
-
   colData <- 0
 
   for(j in 1:dim(dataframe)[2]){
@@ -206,7 +205,6 @@ getNumberResponse <- function(dataframe, model){
     colData <- colData
 
   }#End-for
-
   respVarColumn <- colData #Response variable number in the dataframe
 
   #print(respVarColumn)
@@ -217,9 +215,7 @@ getNumberResponse <- function(dataframe, model){
 getNumberExploratory <- function(dataframe, model){
 
   ChPlusLength <- length(unlist(gregexpr(pattern = "[+]",model))) + 1 #The Length of the character + in the string augmented of 1
-
   chPlus       <- stringr::str_split_fixed(model,"[+]",n = ChPlusLength) #Creating a table of string
-
   getColData   <- NULL
 
   #Retrieving the number of columns for all explanatory variables
@@ -231,49 +227,37 @@ getNumberExploratory <- function(dataframe, model){
 
       #Take one by one chosen exploratory variables
       if(names(dataframe)[j] == H){
-
              colData <- j
              break;
       }
 
     }#End-for
-
     getColData <- paste(getColData,colData,sep=",") #Concat the number of exp variable column in the dataframe
-
 }#End-for
 
   expVarColumns <- getColData
-
   return(expVarColumns)#Return
-
 }#End function
 
 getRidgeValue <- function(dataframe,nbResp,nbExp){
-
   #Putting the exploratory in the vector
   nbExp <- substr(nbExp,2,stringr::str_length(nbExp))
 
   #Taking the element of the pair one by one
   nbExp <- stringr::str_split_fixed(nbExp,",", n = length(unlist(gregexpr(pattern = ",",nbExp))) + 1 )
-
   dFrame <- data.frame(row.names=1:nrow(dataframe))
-
   n <- 0
 
   for(i in 1 : length(nbExp)){
 
     n <- as.integer(nbExp[i])
-
     dataCol <- dataframe[n]
-
     dFrame  <- cbind(dFrame,dataCol)
 
   }#End-for
 
   dFrame <- as.data.frame(dFrame)
-
   x <- as.matrix(dFrame)
-
   y <- as.matrix(dataframe[nbResp])
 
   #fit model
@@ -300,25 +284,19 @@ getLassoValue <- function(dataframe,nbResp,nbExp){
 
   #Taking the element of the pair one by one
   nbExp <- stringr::str_split_fixed(nbExp,",", n = length(unlist(gregexpr(pattern = ",",nbExp))) + 1 )
-
   dFrame <- data.frame(row.names=1:nrow(dataframe))
-
   n <- 0
 
   for(i in 1 : length(nbExp)){
-
+    
     n <- as.integer(nbExp[i])
-
     dataCol <- dataframe[n]
-
     dFrame  <- cbind(dFrame,dataCol)
-
   }#End-for
 
   dFrame <- as.data.frame(dFrame)
 
   x <- as.matrix(dFrame)
-
   y <- as.matrix(dataframe[nbResp])
 
   #fit model
